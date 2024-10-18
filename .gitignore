@@ -1,9 +1,6 @@
 # Configuration Directories and Files
 .vscode
 
-# Build directory
-build
-
 # Prerequisites
 *.d
 
