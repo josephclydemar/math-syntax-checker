@@ -14,5 +14,5 @@ Node_t* create_node(f32 start_pos_x, f32 start_pos_y, f32 radius, Color color, c
 }
 
 void draw_node(const Node_t* const node) {
-    DrawCircle(node->pos.x, node->pos.y, node->radius, node->color);
+    DrawRing(node->pos, node->radius + 2.0f, node->radius + 4.0f, 0.0f, 360.0f, 50, node->color);
 }

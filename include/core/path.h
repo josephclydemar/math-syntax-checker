@@ -1,7 +1,7 @@
 #ifndef PATH_H
 #define PATH_H
 
-#include "node.h"
+#include "core/node.h"
 
 typedef struct {
     Vector2 path_points[100];

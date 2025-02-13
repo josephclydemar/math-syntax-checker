@@ -33,11 +33,13 @@ LDFLAGS = -L $(RAYLIB_LIB_PATH) -lraylib
 # header files
 CORE_NODE_H = include/core/node.h
 CORE_PATH_H = include/core/path.h
+CORE_DIAGRAM_H = include/core/diagram.h
 
 # source files
 MAIN_SRC = src/main.c
 CORE_NODE_SRC = src/core/node.c
 CORE_PATH_SRC = src/core/path.c
+CORE_DIAGRAM_SRC = src/core/diagram.c
 
 # executable target file
 BIN_TARGET = $(BUILD_BIN_DIR)/dfa.$(BIN_TARGET_EXT)
@@ -46,6 +48,7 @@ BIN_TARGET = $(BUILD_BIN_DIR)/dfa.$(BIN_TARGET_EXT)
 OBJ_MAIN_TARGET = $(BUILD_OBJ_DIR)/main.$(OBJ_TARGET_EXT)
 OBJ_CORE_NODE_TARGET = $(BUILD_OBJ_DIR)/node.$(OBJ_TARGET_EXT)
 OBJ_CORE_PATH_TARGET = $(BUILD_OBJ_DIR)/path.$(OBJ_TARGET_EXT)
+OBJ_CORE_DIAGRAM_TARGET = $(BUILD_OBJ_DIR)/diagram.$(OBJ_TARGET_EXT)
 
 
 ifeq ($(OS), Windows_NT)
@@ -65,7 +68,7 @@ clean:
 	$(RM) $(BUILD_OBJ_DIR)/*.$(OBJ_TARGET_EXT)
 
 
-$(BIN_TARGET): $(OBJ_MAIN_TARGET) $(OBJ_CORE_NODE_TARGET) $(OBJ_CORE_PATH_TARGET)
+$(BIN_TARGET): $(OBJ_MAIN_TARGET) $(OBJ_CORE_NODE_TARGET) $(OBJ_CORE_PATH_TARGET) $(OBJ_CORE_DIAGRAM_TARGET)
 	$(CC) $(CFLAGS) $^ $(LDFLAGS) -o $@
 
 
@@ -76,4 +79,7 @@ $(OBJ_CORE_NODE_TARGET): $(CORE_NODE_SRC) $(CORE_NODE_H)
 	$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 $(OBJ_CORE_PATH_TARGET): $(CORE_PATH_SRC) $(CORE_PATH_H)
+	$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
+
+$(OBJ_CORE_DIAGRAM_TARGET): $(CORE_DIAGRAM_SRC) $(CORE_DIAGRAM_H)
 	$(CC) $(CFLAGS) -c $(INCLUDES) $< -o $@
