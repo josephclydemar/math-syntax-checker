@@ -4,7 +4,7 @@
 #include "core/diagram.h"
 
 int main(void) {
-    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Armored Havoc");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Math Syntax Checker");
     SetTargetFPS(60);
 
     Diagram_t* d = create_diagram();
